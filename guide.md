@@ -21,6 +21,8 @@ pip install -r requirements.txt
 - English dataset for training Language model: [Click here](https://huggingface.co/datasets?task_categories=task_categories:text-generation&task_ids=task_ids:language-modeling&language=language:en&sort=downloads)
 - Japanese dataset for training Language model: [Click here](https://huggingface.co/datasets?task_categories=task_categories:text-generation&task_ids=task_ids:language-modeling&language=language:ja&sort=downloads)
 
+If you want to use your own dataset, refer to [this](https://huggingface.co/docs/datasets/nlp_load) link.
+
 ## Training
 
 ### Step 1. Model name and dataset name
@@ -153,4 +155,14 @@ Run this command to start training:
 
 ```bash
 accelerate launch training.py
+```
+
+If you want continue training, change this line in 'training.py' file. Then run the command above.
+
+```python
+# training.py
+
+...
+
+trainer.train(resume_from_checkpoint=True)
 ```
